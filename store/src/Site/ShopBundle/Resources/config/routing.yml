@@ -1,0 +1,57 @@
+site_shop_homepage:
+    path:     /
+    defaults: { _controller: SiteShopBundle:Page:index }
+site_shop_store_categ:
+    path:     /cat
+    defaults: { _controller: SiteShopBundle:Page:viewCat }
+site_shop_store_prod:
+    path:     /prod
+    defaults: { _controller: SiteShopBundle:Page:viewProd }
+my_app_greeting:
+    pattern:  /ajax
+    defaults: { _controller: SiteShopBundle:Ajax:index}
+    requirements:
+        _method:  GET
+site_shop_show_cart:
+    path:     /cart
+    defaults: { _controller: SiteShopBundle:Page:showCart }
+site_shop_returnitem:
+    path:     /ret
+    defaults: { _controller: SiteShopBundle:Page:itemReturn}
+site_shop_delitem:
+    path:     /del
+    defaults: { _controller: SiteShopBundle:Page:itemDelete}
+site_shop_doneorder:
+     path:     /done
+     defaults: { _controller: SiteShopBundle:Page:doneOrder}
+     requirements:
+             _method:  GET
+site_shop_viewfilter:
+   pattern:  /ajaxfilter
+   defaults: { _controller: SiteShopBundle:Ajax:viewFilter}
+   requirements:
+       _method:  GET
+site_shop_vieworder:
+   pattern:  /order
+   defaults: { _controller: SiteShopBundle:Order:index}
+   requirements:
+       _method:  GET
+site_shop_viewdetail:
+  pattern:  /detail
+  defaults: { _controller: SiteShopBundle:Order:viewDetail}
+  requirements:
+      _method:  GET
+site_shop_createProduct:
+   pattern:  /createproduct
+   defaults: { _controller: SiteShopBundle:Order:createProduct}
+site_shop_saveProduct:
+   pattern:  /saveproduct
+   defaults: { _controller: SiteShopBundle:Order:saveProduct}
+site_shop_servtest:
+   pattern:  /servtest
+   defaults: { _controller: SiteShopBundle:Test:index}
+site_shop_doneFiltr:
+   pattern:  /donefil
+   defaults: { _controller: SiteShopBundle:Page:doneFiltr}
+
+

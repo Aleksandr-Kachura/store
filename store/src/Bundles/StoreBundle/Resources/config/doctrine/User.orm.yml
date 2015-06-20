@@ -1,0 +1,22 @@
+Bundles\StoreBundle\Entity\User:
+    type: entity
+    table: null
+    repositoryClass: Bundles\StoreBundle\Entity\UserRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+    oneToMany:
+        orders:
+          targetEntity: Orders
+          mappedBy: user
+        comment:
+          targetEntity: Comment
+          mappedBy: user
+    lifecycleCallbacks: {  }

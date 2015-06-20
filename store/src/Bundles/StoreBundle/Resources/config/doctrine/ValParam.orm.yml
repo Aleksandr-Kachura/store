@@ -1,0 +1,31 @@
+Bundles\StoreBundle\Entity\ValParam:
+    type: entity
+    table: null
+    repositoryClass: Bundles\StoreBundle\Repository\ValParamRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        value:
+            type: string
+            length: 255
+        productId:
+            type: integer
+            column: product_id
+    manyToOne:
+        product:
+          targetEntity: Product
+          inversedBy: valparam
+          joinColumn:
+            name: product_id
+            referencedColumnName: id
+        parametrs:
+          targetEntity: Parametrs
+          inversedBy: valparam
+          joinColumn:
+            name: param_id
+            referencedColumnName: id
+    lifecycleCallbacks: {  }

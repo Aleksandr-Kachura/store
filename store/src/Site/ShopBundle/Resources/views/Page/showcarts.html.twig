@@ -1,0 +1,41 @@
+{% extends 'SiteShopBundle::layout.html.twig' %}
+{% block body %}
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Товар</th>
+            <th>Цена</th>
+            <th>Количество</th>
+            <th>Действие</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for one in prods %}
+            <tr>
+                <th scope="row">{{ loop.index }}</th>
+                <td><a href="{{ path('site_shop_store_prod', { 'id': one.id }) }}">{{ one.title }}</a></td>
+                <td>{{ one.price }}$</td>
+                {% if quant %}
+                    <td>{{quant[loop.index-1 ]}}</td>
+                {% endif %}
+                <td><a href="{{ path('site_shop_delitem', { 'id': one.id }) }}"><span class="glyphicon glyphicon-remove"></span></a></td>
+             </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+<a href="{{ path('site_shop_doneorder') }}"><button type="button" class="btn btn-success">Оформить</button></a>
+
+
+{% endblock %}
+
+{% block jscript %}
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+{% endblock %}

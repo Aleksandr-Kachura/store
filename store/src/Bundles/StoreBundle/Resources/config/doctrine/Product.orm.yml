@@ -1,0 +1,52 @@
+Bundles\StoreBundle\Entity\Product:
+    type: entity
+    table: null
+    repositoryClass: Bundles\StoreBundle\Repository\ProductRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+        description:
+            type: string
+            length: 255
+        price:
+            type: integer
+        categoryId:
+            type: integer
+            column: category_id
+        brendId:
+            type: integer
+            column: brend_id
+    manyToOne:
+        category:
+          targetEntity: Category
+          inversedBy: product
+          joinColumn:
+            name: category_id
+            referencedColumnName: id
+        brend:
+          targetEntity: Brend
+          inversedBy: product
+          joinColumn:
+            name: brend_id
+            referencedColumnName: id
+    oneToMany:
+        photo:
+          targetEntity: Photo
+          mappedBy: product
+        valparam:
+          targetEntity: ValParam
+          mappedBy: product
+        prodtorder:
+          targetEntity: ProdtoOrder
+          mappedBy: product
+        comment:
+          targetEntity: Comment
+          mappedBy: product
+    lifecycleCallbacks: {  }

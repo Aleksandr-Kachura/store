@@ -1,0 +1,36 @@
+{% extends 'SiteShopBundle::layout.html.twig' %}
+{% block body %}
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>OrderID</th>
+            <th>Цена</th>
+            <th>Количество</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for key,order in ord %}
+                   <tr>
+                        <th scope="row"><a href="{{ path('site_shop_viewdetail', { 'id': key}) }}">{{key}}</a></th>
+                        <th scope="row">{{ order.price }}</th>
+                        <th scope="row">{{ order.quantity }}</th>
+                </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+{% endblock %}
+
+{% block jscript %}
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'SiteShopBundle::layout.html.twig' %}
+{% block body %}
+    Название категории<a href=""> {{category.name}}</a>
+
+    {% for one in category.children %}
+        </p>
+        <a href="{{ path('site_shop_store_categ', { 'slug': one.slug }) }}">{{one.name}}</a><hr>
+    {% endfor %}
+
+    {% for one in prod %}
+         {% if loop.index==1  %}
+           <br><a href="{{ path('site_shop_createProduct', { 'slug': slug }) }}">Создать продукт</a>
+           <br>  <h1>Продукты</h1>
+         {% endif %}
+        </p>
+
+        <a href="{{ path('site_shop_store_prod', { 'id': one.id }) }}">{{one.title}}</a>
+       <br/> {% for val in one.getValparam %}
+            {{ val.getParametrs.name}}
+            :
+            {{ val.getValue}}
+            <br>
+        {% endfor %}
+        <br>Производители:{{one.brend}}<hr>
+
+
+    {% endfor %}
+
+{% endblock %}
+
+{% block cat %}
+    <div class="title_box">{{category.name}}</div>
+    <ul class="left_menu">
+        {% for key,cat in category.children %}
+            {% if loop.index%2==0  %}
+                <li class="odd"><a href="{{ path('site_shop_store_categ', { 'slug': cat.slug }) }}">{{cat.name}}</a></li>
+            {% else %}
+                <li class="even"><a href="{{ path('site_shop_store_categ', { 'slug': cat.slug }) }}">{{cat.name}}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+     {% if param is defined  %}
+        <div class="title_box">Фильтр</div>
+        <div class="checkbox">
+            <label><input  name="filter[]" type="checkbox" value="1">Toshuba</label>
+           <br> <label><input  name="filter[]" type="checkbox" value="2">Dell</label>
+            <br><label><input  name="filter[]" type="checkbox" value="3">Samsung</label>
+        </div>
+
+        <input type="hidden" id="slug" value="{{slug}}"/>
+
+        <form action="{{ path('site_shop_doneFiltr', {'slug': slug}) }}" method="post" >
+            <h3>Фильтр:</h3>
+            {% for key,par in param %}
+               <p>Название:{{key}}</p>
+                {% for klush,vall in par %}
+                    {% for k,val in vall %}
+                        <label><input  name="param['{{ key }}'][]" type="checkbox" value="{{ val }}">{{ val }}</label>
+                    {% endfor %}
+                    <br>
+                {% endfor %}
+            {% endfor %}
+            <input type="submit" />
+
+        </form>
+    {% endif %}
+{% endblock %}
+{% block jscript %}
+    <script type="text/javascript" src="{{ asset('bundles/siteshop/js/1.js') }}"></script>
+{% endblock %}

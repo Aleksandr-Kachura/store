@@ -1,0 +1,32 @@
+Bundles\StoreBundle\Entity\Comment:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        comment:
+            type: text
+        userId:
+            type: integer
+            column: user_id
+        productId:
+            type: integer
+            column: product_id
+    manyToOne:
+        user:
+          targetEntity: User
+          inversedBy: comment
+          joinColumn:
+            name: user_id
+            referencedColumnName: id
+        product:
+          targetEntity: Product
+          inversedBy: comment
+          joinColumn:
+            name: product_id
+            referencedColumnName: id
+    lifecycleCallbacks: {  }

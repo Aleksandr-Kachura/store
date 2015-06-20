@@ -1,0 +1,29 @@
+Bundles\StoreBundle\Entity\Orders:
+    type: entity
+    repositoryClass: Bundles\StoreBundle\Repository\OrdersRepository
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        userId:
+            type: integer
+            column: user_id
+        date:
+            type: datetime
+    oneToMany:
+        prodtorder:
+          targetEntity: ProdtoOrder
+          mappedBy: orders
+
+    manyToOne:
+        user:
+          targetEntity: User
+          inversedBy: orders
+          joinColumn:
+            name: user_id
+            referencedColumnName: id
+    lifecycleCallbacks: {  }

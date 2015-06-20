@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>DAnsing!</title>
+    <link href="{{ asset('bundles/firstus/css/styles.css') }}" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<div id="content">
+    <div id="header">
+        <div id="logo">
+            <h1><a href="#">MYSITE.RU</a></h1>
+        </div>
+        <div id="menu">
+            <ul>
+                <li><a href="{{ path('first_us_homepage') }}"  title="">Home</a></li>
+                <li><a href="{{ path('first_us_contact') }}" title="">Info</a></li>
+                <li><a href="#" title="">Gallery</a></li>
+                <li><a href="{{ path('first_us_about') }}" title="">About</a></li>
+                <li><a href="#" title="">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="main">
+        <div id="right">
+            {% block body %}{% endblock %}
+        </div>
+
+        <div id="left">
+            <h3>Nunc pellentesque</h3>
+            <ul>
+                <li class="m1"><ul>
+                        <li><a href="#">Vivamus id arcu</a></li>
+                        <li><a href="#">Duis congue ultricies</a></li>
+                        <li><a href="#">Purus in mollis purus</a></li>
+                        <li><a href="#">Orci nonummy fringilla</a></li>
+                        <li><a href="#">Pellentesque at lorem</a></li>
+                        <li><a href="#">Enim vivamus convallis</a></li>
+                        <li><a href="#">Ipsum vitae felis</a></li>
+                        <li><a href="#">Integer facilisis</a></li>
+                        <li><a href="#">Sagittis Bibendum Erat</a></li>
+                    </ul>
+                </li>
+            </ul><br />
+            <h3>News</h3>
+            <ul>
+                <li>
+                    <ul>
+                        <li>
+                            <h4>June 2, 2010</h4>
+                            <p><a href="#"> Duis tempor posuere diam. Suspendisse vel tellus quis nunc malesuada porta. &#8230;</a></p></li>
+                        <li>
+                            <h4>June 12, 2010</h4>
+                            <p><a href="#">Tempus Duis tempor posuere diam. Suspendisse vel tellus quis nunc malesuada porta. &#8230;</a></p></li>
+                        <li>
+                            <h4>June 23, 2010</h4>
+                            <p><a href="#">Tempus in, lacus. Duis tempor uspendisse vel tellus quis nunc malesuada porta. &#8230;</a></p></li>
+                    </ul>
+                </li>
+            </ul>
+            <br />
+            <br />
+
+        </div>
+
+        <div style="clear: both"></div>
+
+
+    </div>
+</div>
+<div id="footer">
+    <p>Copyright &copy; 2015
+    </p>
+</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+Bundles\StoreBundle\Entity\Category:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        slug:
+            type: string
+            length: 255
+        parentId:
+            type: integer
+            column: parent_id
+            nullable: true
+    oneToMany:
+       children:
+         targetEntity: Category
+         mappedBy: parent
+       product:
+         targetEntity: Product
+         mappedBy: category
+    manyToOne:
+       parent:
+         targetEntity: Category
+         inversedBy: children
+    manyToMany:
+        param:
+          targetEntity: Parametrs
+          inversedBy: category
+          joinTable:
+            name: param_to_cat
+            joinColumns:
+                cat_id:
+                    referencedColumnName: id
+            inverseJoinColumns:
+                param_id:
+                    referencedColumnName: id
+
+    lifecycleCallbacks: {  }

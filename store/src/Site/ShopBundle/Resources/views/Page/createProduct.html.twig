@@ -1,0 +1,39 @@
+{% extends 'SiteShopBundle::layout.html.twig' %}
+{% block body %}
+   {% if form is defined  %}
+        <form action="{{ path('site_shop_saveProduct', {'slug': slug}) }}" method="post" {{ form_enctype(form) }}>
+            {{ form_widget(form) }}
+            <div class="checkbox">
+                Параметры
+                {% for param in params %}
+
+                <br><label><input  name="params[]" type="checkbox" value="{{param.id}}">{{param.name}}</label>
+
+                    <p><select name="hero[]">
+                        {% for par in param.getValparam %}
+                            <option value="{{ par.value }}">{{ par.value }}</option>
+                        {% endfor %}
+                     </select></p>
+
+
+                {% endfor %}
+            </div>
+            <input type="submit" />
+
+        </form>
+    {% endif %}
+    {% if message is defined %}
+        {{ message }}
+    {% endif %}
+{% endblock %}
+
+{% block jscript %}
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+{% endblock %}

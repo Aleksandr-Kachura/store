@@ -1,0 +1,50 @@
+{% extends 'SiteShopBundle::layout.html.twig' %}
+{% block body %}
+    {% for val in prod.getValparam %}
+        {{ val.getParametrs.name}}
+        :
+        {{ val.getValue}}
+        <br>
+    {% endfor %}
+
+    <div class="center_title_bar">Motorola 156 MX-VL</div>
+    <div class="prod_box_big">
+        <div class="top_prod_box_big"></div>
+        <div class="center_prod_box_big">
+            <div class="product_img_big">
+                <a href="javascript:popImage('{{asset('bundles/siteshop/image/big_pic.jpg')}}','Some Title')" title="header=[Zoom] body=[&nbsp;] fade=[on]">
+                    <img src="{{asset('bundles/siteshop/image/laptop.gif')}}" alt="" border="0" /></a>
+                <div class="thumbs"> <a href="#" title="header=[Thumb1] body=[&nbsp;] fade=[on]">
+                        <img src=""{{asset('bundles/siteshop/image/thumb1.gif')}}" alt="" border="0" /></a> <a href="#" title="header=[Thumb2] body=[&nbsp;] fade=[on]">
+                        <img src="images/thumb1.gif" alt="" border="0" /></a> <a href="#" title="header=[Thumb3] body=[&nbsp;] fade=[on]"><img src="images/thumb1.gif" alt="" border="0" /></a> </div>
+            </div>
+            <div class="details_big_box">
+                <div class="product_title_big">My Cinema-U3000/DVBT, USB 2.0 TV BOX External, White</div>
+                <div class="specifications"> Disponibilitate: <span class="blue">In stoc</span><br />
+                    Garantie: <span class="blue">24 luni</span><br />
+                    Tip transport: <span class="blue">Mic</span><br />
+                    Pretul include <span class="blue">TVA</span><br />
+                </div>
+                <div class="prod_price_big"><span class="reduce">350$</span> <span class="price">{{prod.price}}$</span></div>
+                <a href="#" class="addtocart">add to cart</a> <a href="#" class="compare">compare</a> </div>
+                <input type="hidden" id="prodid" value="{{prod.id}}"/>
+           <!-- <a href="javascript:void(0)" onclick="buy_one_photo({{prod.id}});">Купить {{prod.price}}$</a>-->
+        </div>
+        <div class="bottom_prod_box_big"></div>
+    </div>
+    <div id="dialog" style="display: none;"  title="Поздравляем">
+        <p >Товар успешно добавлен в корзину</p>
+    </div>
+{% endblock %}
+{% block cat %}
+
+{% endblock %}
+{% block jscript %}
+    <script type="text/javascript" src="{{ asset('bundles/siteshop/js/1.js') }}"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+{% endblock %}

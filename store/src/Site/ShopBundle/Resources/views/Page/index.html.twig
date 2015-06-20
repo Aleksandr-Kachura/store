@@ -1,0 +1,32 @@
+{% extends 'SiteShopBundle::layout.html.twig' %}
+{% block body %}
+    <div class="center_title_bar">Latest Products</div>
+    <div class="prod_box">
+        <div class="top_prod_box"></div>
+        <div class="center_prod_box">
+            <div class="product_title"><a href="details.html">Motorola 156 MX-VL</a></div>
+            <div class="product_img"><a href="details.html"><img src="{{ asset('bundles/siteshop/image/laptop.gif')}}" alt="" border="0" /></a></div>
+            <div class="prod_price"><span class="reduce">350$</span> <span class="price">270$</span></div>
+        </div>
+     </div>
+     <div class="prod_box">
+        <div class="top_prod_box"></div>
+        <div class="center_prod_box">
+            <div class="product_title"><a href="details.html">Iphone Apple</a></div>
+            <div class="product_img"><a href="details.html"><img src="{{ asset('bundles/siteshop/image/p4.gif')}}" alt="" border="0" /></a></div>
+            <div class="prod_price"><span class="price">270$</span></div>
+        </div>
+     </div>
+{% endblock %}
+{% block cat %}
+    <div class="title_box">Categories</div>
+    <ul class="left_menu">
+        {% for key,cat in category %}
+            {% if loop.index%2==0  %}
+                <li class="odd"><a href="{{ path('site_shop_store_categ', { 'slug': cat.slug }) }}">{{cat.name}}</a></li>
+            {% else %}
+                <li class="even"><a href="{{ path('site_shop_store_categ', { 'slug': cat.slug }) }}">{{cat.name}}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endblock %}

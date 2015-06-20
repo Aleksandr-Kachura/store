@@ -1,0 +1,22 @@
+Bundles\StoreBundle\Entity\Parametrs:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+    manyToMany:
+        category:
+            targetEntity: Category
+            mappedBy: param
+    oneToMany:
+        valparam:
+          targetEntity: ValParam
+          mappedBy: parametrs
+    lifecycleCallbacks: {  }

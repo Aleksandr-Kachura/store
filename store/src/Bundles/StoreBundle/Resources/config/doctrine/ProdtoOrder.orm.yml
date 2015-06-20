@@ -1,0 +1,34 @@
+Bundles\StoreBundle\Entity\ProdtoOrder:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        productId:
+            type: integer
+            column: product_id
+        orderId:
+            type: integer
+            column: order_id
+        price:
+            type: integer
+        quantity:
+            type: integer
+    manyToOne:
+        product:
+          targetEntity: Product
+          inversedBy: prodtorder
+          joinColumn:
+            name: product_id
+            referencedColumnName: id
+        orders:
+          targetEntity: Orders
+          inversedBy: prodtorder
+          joinColumn:
+            name: order_id
+            referencedColumnName: id
+    lifecycleCallbacks: {  }

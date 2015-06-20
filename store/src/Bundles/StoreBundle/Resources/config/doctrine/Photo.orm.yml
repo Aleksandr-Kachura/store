@@ -1,0 +1,24 @@
+Bundles\StoreBundle\Entity\Photo:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        adres:
+            type: string
+            length: 255
+        productId:
+            type: integer
+            column: product_id
+    manyToOne:
+        product:
+          targetEntity: Product
+          inversedBy: photo
+          joinColumn:
+            name: product_id
+            referencedColumnName: id
+    lifecycleCallbacks: {  }

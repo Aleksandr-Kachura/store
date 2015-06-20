@@ -1,0 +1,57 @@
+services:
+#    site_shop.example:
+#        class: Site\ShopBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+    sonata.admin.category:
+        class: Site\ShopBundle\Admin\CategoryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Category" }
+        arguments:
+            - ~
+            - Bundles\StoreBundle\Entity\Category
+            - ~
+        calls:
+            - [ setTranslationDomain, [BundlesStoreBundle]]
+    sonata.admin.photo:
+         class: Site\ShopBundle\Admin\PhotoAdmin
+         tags:
+             - { name: sonata.admin, manager_type: orm, group: "Content", label: "Photo" }
+         arguments:
+             - ~
+             - Bundles\StoreBundle\Entity\Photo
+             - ~
+         calls:
+             - [ setTranslationDomain, [BundlesStoreBundle]]
+    sonata.admin.product:
+         class: Site\ShopBundle\Admin\ProductAdmin
+         tags:
+             - { name: sonata.admin, manager_type: orm, group: "Content", label: "Product" }
+         arguments:
+             - ~
+             - Bundles\StoreBundle\Entity\Product
+             - ~
+         calls:
+             - [ setTranslationDomain, [BundlesStoreBundle]]
+    sonata.admin.brend:
+             class: Site\ShopBundle\Admin\BrendAdmin
+             tags:
+                 - { name: sonata.admin, manager_type: orm, group: "Content", label: "Brend" }
+             arguments:
+                 - ~
+                 - Bundles\StoreBundle\Entity\Brend
+                 - ~
+             calls:
+                 - [ setTranslationDomain, [BundlesStoreBundle]]
+
+    site.repository.order:
+              class: Bundles\StoreBundle\Repository\OrderRepository
+              factory_service: doctrine.orm.entity_manager
+              factory_method: getRepository
+              arguments:
+                  - 'BundlesStoreBundle:Product'
+    site_bundle.service:
+              class:  Site\ShopBundle\Service\Srv
+              arguments:
+                  - @service_container
+
+
